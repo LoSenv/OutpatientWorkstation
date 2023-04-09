@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{174C1866-864E-4C52-81CF-678B732B3987}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OutpatientWorkstation</RootNamespace>
+    <AssemblyName>OutpatientWorkstation</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLogicLayer\UserBll.cs" />
+    <Compile Include="DataAccessLayer\UserDal.cs" />
+    <Compile Include="frm_AMpwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_AMpwd.Designer.cs">
+      <DependentUpon>frm_AMpwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_InsertAgency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_InsertAgency.Designer.cs">
+      <DependentUpon>frm_InsertAgency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_InsertOrdonnance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_InsertOrdonnance.Designer.cs">
+      <DependentUpon>frm_InsertOrdonnance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_InsertPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_InsertPatient.Designer.cs">
+      <DependentUpon>frm_InsertPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ModifyAgency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ModifyAgency.Designer.cs">
+      <DependentUpon>frm_ModifyAgency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ModifyMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ModifyMedicine.Designer.cs">
+      <DependentUpon>frm_ModifyMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ModifyPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ModifyPatient.Designer.cs">
+      <DependentUpon>frm_ModifyPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ViewAgency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ViewAgency.Designer.cs">
+      <DependentUpon>frm_ViewAgency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ViewMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ViewMedicine.Designer.cs">
+      <DependentUpon>frm_ViewMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ViewPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ViewPatient.Designer.cs">
+      <DependentUpon>frm_ViewPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Admin.cs" />
+    <Compile Include="frm_Alogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Alogin.Designer.cs">
+      <DependentUpon>frm_Alogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Register.Designer.cs">
+      <DependentUpon>frm_Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs" />
+    <Compile Include="frm_Ahome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Ahome.Designer.cs">
+      <DependentUpon>frm_Ahome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Dhome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Dhome.Designer.cs">
+      <DependentUpon>frm_Dhome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Login.Designer.cs">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Rhome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Rhome.Designer.cs">
+      <DependentUpon>frm_Rhome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frm_Ahome.resx">
+      <DependentUpon>frm_Ahome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Alogin.resx">
+      <DependentUpon>frm_Alogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_AMpwd.resx">
+      <DependentUpon>frm_AMpwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Dhome.resx">
+      <DependentUpon>frm_Dhome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_InsertAgency.resx">
+      <DependentUpon>frm_InsertAgency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_InsertOrdonnance.resx">
+      <DependentUpon>frm_InsertOrdonnance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_InsertPatient.resx">
+      <DependentUpon>frm_InsertPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Login.resx">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ModifyAgency.resx">
+      <DependentUpon>frm_ModifyAgency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ModifyMedicine.resx">
+      <DependentUpon>frm_ModifyMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ModifyPatient.resx">
+      <DependentUpon>frm_ModifyPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Register.resx">
+      <DependentUpon>frm_Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Rhome.resx">
+      <DependentUpon>frm_Rhome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ViewAgency.resx">
+      <DependentUpon>frm_ViewAgency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ViewMedicine.resx">
+      <DependentUpon>frm_ViewMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ViewPatient.resx">
+      <DependentUpon>frm_ViewPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
