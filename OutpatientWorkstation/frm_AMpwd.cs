@@ -30,18 +30,18 @@ namespace OutpatientWorkstation
 
         private void btn_modify_Click(object sender, EventArgs e)
         {
-            Admin admin= new Admin();
-            admin.Name = _name;
-            admin.OldPassword=this.txb_old.Text.Trim();
-            admin.NewPassword=this.txb_new.Text.Trim();
-            admin.CheckPassword=this.txb_check.Text.Trim();
-            if(!admin.ModifyPassword())
-            {
-                this.txb_old.Focus();
-                this.txb_old.SelectAll();
-                return;
-            }
-            MessageBox.Show(admin.Message);
+            //Admin admin= new Admin();
+            //admin.Name = _name;
+            //admin.OldPassword=this.txb_old.Text.Trim();
+            //admin.NewPassword=this.txb_new.Text.Trim();
+            //admin.CheckPassword=this.txb_check.Text.Trim();
+            //if(!admin.ModifyPassword())
+            //{
+            //    this.txb_old.Focus();
+            //    this.txb_old.SelectAll();
+            //    return;
+            //}
+            //MessageBox.Show(admin.Message);
         }
 
         private void btn_reset_Click(object sender, EventArgs e)

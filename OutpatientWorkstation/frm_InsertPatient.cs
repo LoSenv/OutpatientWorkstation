@@ -24,14 +24,14 @@ namespace OutpatientWorkstation
         }
         private void btn_insert_Click(object sender, EventArgs e)
         {
-            Admin admin = new Admin();
-            admin.PatientName = this.txb_name.Text.Trim();
-            admin.BirthDate = this.dtp_date.Value;
-            admin.PatientGender = this.rdb_male.Checked;
-            admin.PatientPhone = this.txb_phone.Text.Trim();
-            admin.PatientAdress = this.txb_adress.Text.Trim();
-            admin.InsertPatient();
-            MessageBox.Show(admin.Message);
+            //Admin admin = new Admin();
+            //admin.PatientName = this.txb_name.Text.Trim();
+            //admin.BirthDate = this.dtp_date.Value;
+            //admin.PatientGender = this.rdb_male.Checked;
+            //admin.PatientPhone = this.txb_phone.Text.Trim();
+            //admin.PatientAdress = this.txb_adress.Text.Trim();
+            //admin.InsertPatient();
+            //MessageBox.Show(admin.Message);
         }
         private void btn_set_Click(object sender, EventArgs e)
         {

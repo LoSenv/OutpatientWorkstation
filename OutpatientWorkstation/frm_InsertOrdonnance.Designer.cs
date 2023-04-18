@@ -68,6 +68,7 @@
             this.btn_save.TabIndex = 93;
             this.btn_save.Text = "新增处方";
             this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // btn_load
             // 
@@ -78,6 +79,7 @@
             this.btn_load.TabIndex = 92;
             this.btn_load.Text = "载入";
             this.btn_load.UseVisualStyleBackColor = true;
+            this.btn_load.Click += new System.EventHandler(this.btn_load_Click);
             // 
             // btn_delete
             // 
@@ -88,6 +90,7 @@
             this.btn_delete.TabIndex = 91;
             this.btn_delete.Text = "删除";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_add
             // 
@@ -98,6 +101,7 @@
             this.btn_add.TabIndex = 90;
             this.btn_add.Text = "添加";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // dgv_list
             // 
@@ -129,6 +133,7 @@
             this.btn_insertDrug.TabIndex = 87;
             this.btn_insertDrug.Text = "提交";
             this.btn_insertDrug.UseVisualStyleBackColor = true;
+            this.btn_insertDrug.Click += new System.EventHandler(this.btn_insertDrug_Click);
             // 
             // txb_patient
             // 

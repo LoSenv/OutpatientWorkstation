@@ -34,8 +34,8 @@
             this.txb_name = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // frm_login
@@ -80,9 +80,9 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "用户名：";
             // 
-            // errorProvider1
+            // ErrorProvider
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.ErrorProvider.ContainerControl = this;
             // 
             // frm_Alogin
             // 
@@ -97,7 +97,7 @@
             this.Name = "frm_Alogin";
             this.Text = "管理员登录";
             this.Load += new System.EventHandler(this.frm_Alogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,6 +110,6 @@
         private System.Windows.Forms.TextBox txb_name;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider ErrorProvider;
     }
 }

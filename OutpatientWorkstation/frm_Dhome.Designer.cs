@@ -83,6 +83,7 @@
             this.btn_mpwd.TabIndex = 23;
             this.btn_mpwd.Text = "修改密码";
             this.btn_mpwd.UseVisualStyleBackColor = true;
+            this.btn_mpwd.Click += new System.EventHandler(this.btn_mpwd_Click);
             // 
             // lblMsg
             // 
@@ -110,6 +111,7 @@
             this.btn_out.TabIndex = 20;
             this.btn_out.Text = "注销";
             this.btn_out.UseVisualStyleBackColor = true;
+            this.btn_out.Click += new System.EventHandler(this.btn_out_Click);
             // 
             // panel1
             // 
@@ -144,13 +146,13 @@
             // tsm_mRinsert
             // 
             this.tsm_mRinsert.Name = "tsm_mRinsert";
-            this.tsm_mRinsert.Size = new System.Drawing.Size(224, 26);
+            this.tsm_mRinsert.Size = new System.Drawing.Size(152, 26);
             this.tsm_mRinsert.Text = "填写病历";
             // 
             // tsm_mRview
             // 
             this.tsm_mRview.Name = "tsm_mRview";
-            this.tsm_mRview.Size = new System.Drawing.Size(224, 26);
+            this.tsm_mRview.Size = new System.Drawing.Size(152, 26);
             this.tsm_mRview.Text = "浏览病历";
             // 
             // menuStrip4
@@ -176,14 +178,14 @@
             // tsm_pview
             // 
             this.tsm_pview.Name = "tsm_pview";
-            this.tsm_pview.Size = new System.Drawing.Size(224, 26);
+            this.tsm_pview.Size = new System.Drawing.Size(182, 26);
             this.tsm_pview.Text = "浏览病人信息";
             this.tsm_pview.Click += new System.EventHandler(this.tsm_pview_Click);
             // 
             // tsm_mview
             // 
             this.tsm_mview.Name = "tsm_mview";
-            this.tsm_mview.Size = new System.Drawing.Size(224, 26);
+            this.tsm_mview.Size = new System.Drawing.Size(182, 26);
             this.tsm_mview.Text = "浏览药品信息";
             this.tsm_mview.Click += new System.EventHandler(this.tsm_mview_Click);
             // 
@@ -210,13 +212,14 @@
             // tsm_oinsert
             // 
             this.tsm_oinsert.Name = "tsm_oinsert";
-            this.tsm_oinsert.Size = new System.Drawing.Size(224, 26);
+            this.tsm_oinsert.Size = new System.Drawing.Size(152, 26);
             this.tsm_oinsert.Text = "新增处方";
+            this.tsm_oinsert.Click += new System.EventHandler(this.tsm_oinsert_Click);
             // 
             // tsm_oview
             // 
             this.tsm_oview.Name = "tsm_oview";
-            this.tsm_oview.Size = new System.Drawing.Size(224, 26);
+            this.tsm_oview.Size = new System.Drawing.Size(152, 26);
             this.tsm_oview.Text = "浏览处方";
             // 
             // frm_Dhome

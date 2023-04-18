@@ -294,13 +294,16 @@ varchar(128))
 
 --建病历表
 
-DROP TABLE IF EXISTS  tb_MedicalRecord
+DROP TABLE  IF EXISTS   tb_MedicalRecord
 CREATE TABLE tb_MedicalRecord
 (No
 int
 not null
 constraint pk_MedicalRecord_No
 primary key(No) identity(1,1)
+,Name
+VARCHAR(20)
+NOT NULL
 ,DoctorNo
 int
 not null
@@ -310,12 +313,12 @@ references tb_Agency(No)
 ,Situation
 varchar(100)
 not null
-,OrdonnanceNo
+,RegisterNo
 int
 not null
-constraint pk_MedicalRecord_OrdonnanceNo
-foreign key(OrdonnanceNo)
-references tb_Ordonnance(No))
+constraint pk_MedicalRecord_RegisterNo
+foreign key(RegisterNo)
+references tb_Register(No))
 
 
 --建挂号表

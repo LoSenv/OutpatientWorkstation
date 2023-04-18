@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btn_sign = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txb_check = new System.Windows.Forms.TextBox();
@@ -36,6 +37,8 @@
             this.txb_name = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_sign
@@ -106,6 +109,10 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "用户名：";
             // 
+            // ErrorProvider
+            // 
+            this.ErrorProvider.ContainerControl = this;
+            // 
             // frm_Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -122,6 +129,7 @@
             this.Name = "frm_Register";
             this.Text = "用户注册";
             this.Load += new System.EventHandler(this.frm_Register_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +145,6 @@
         private System.Windows.Forms.TextBox txb_name;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider ErrorProvider;
     }
 }

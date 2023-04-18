@@ -50,5 +50,28 @@ namespace OutpatientWorkstation
             this.pnl_content.Controls.Add(frm_ViewMedicine);
             frm_ViewMedicine.Show();
         }
+
+        private void tsm_oinsert_Click(object sender, EventArgs e)
+        {
+            frm_InsertOrdonnance frm_InsertOrdonnance = new frm_InsertOrdonnance();
+            frm_InsertOrdonnance.TopLevel = false;
+            frm_InsertOrdonnance.FormBorderStyle = FormBorderStyle.None;
+            frm_InsertOrdonnance.Dock = DockStyle.Fill;
+            this.pnl_content.Controls.Clear();
+            this.pnl_content.Controls.Add(frm_InsertOrdonnance);
+            frm_InsertOrdonnance.Show();
+        }
+
+        private void btn_out_Click(object sender, EventArgs e)
+        {
+            frm_Login frm_Login = new frm_Login();
+            frm_Login.ShowDialog();
+        }
+
+        private void btn_mpwd_Click(object sender, EventArgs e)
+        {
+            frm_Mpwd frm_Mpwd = new frm_Mpwd(this._name);
+            frm_Mpwd.ShowDialog();
+        }
     }
 }

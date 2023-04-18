@@ -47,7 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\AdminBll.cs" />
+    <Compile Include="BusinessLogicLayer\IAdminBll.cs" />
+    <Compile Include="BusinessLogicLayer\IUserBll.cs" />
     <Compile Include="BusinessLogicLayer\UserBll.cs" />
+    <Compile Include="DataAccessLayer\AdminDal.cs" />
+    <Compile Include="DataAccessLayer\IAdminDal.cs" />
+    <Compile Include="DataAccessLayer\IUserDal.cs" />
     <Compile Include="DataAccessLayer\UserDal.cs" />
     <Compile Include="frm_AMpwd.cs">
       <SubType>Form</SubType>
@@ -90,6 +96,12 @@
     </Compile>
     <Compile Include="frm_ModifyPatient.Designer.cs">
       <DependentUpon>frm_ModifyPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Mpwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Mpwd.Designer.cs">
+      <DependentUpon>frm_Mpwd.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_ViewAgency.cs">
       <SubType>Form</SubType>
@@ -181,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ModifyPatient.resx">
       <DependentUpon>frm_ModifyPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Mpwd.resx">
+      <DependentUpon>frm_Mpwd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Register.resx">
       <DependentUpon>frm_Register.cs</DependentUpon>
