@@ -24,8 +24,8 @@ namespace OutpatientWorkstation
         public frm_Mpwd()
         {
             InitializeComponent();
+            UserBll = new UserBll();
             this.StartPosition = FormStartPosition.CenterScreen;
-            UserBll= new UserBll();
             this.txb_old.Validating += this.ValidateUserOldPassword;
             this.txb_new.Validating+= this.ValidateUserNewPassword;
             this.txb_check.Validating += this.ValidateUserCheckPassword;
@@ -79,12 +79,6 @@ namespace OutpatientWorkstation
             if (isEmpty)
             {
                 ErrorProvider.SetError(this.txb_check, "请填写确认密码！");
-                return;
-            }
-            bool isExqual = this.UserBll.CheckEqual(newPasword, checkPassword);
-            if(!isExqual)
-            {
-                ErrorProvider.SetError(this.txb_check, "密码不一致！");
                 return;
             }
             ErrorProvider.SetError(this.txb_check, "");

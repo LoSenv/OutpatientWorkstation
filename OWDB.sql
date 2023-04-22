@@ -132,7 +132,7 @@ not null)
 
 --建药品表
 
-DROP TABLE  IF EXISTS tb_Medicine
+DROP TABLE  IF EXISTS  tb_Medicine
 CREATE TABLE tb_Medicine
 (No
 int
@@ -152,7 +152,7 @@ not null
 varchar(128)
 not null
 ,Price
-money
+Decimal
 not null
 ,Count
 int
@@ -252,7 +252,7 @@ not null)
 
 --建处方单明细表
 
-DROP TABLE IF EXISTS  tb_OrdonnanceDetail
+DROP TABLE IF EXISTS   tb_OrdonnanceDetail
 CREATE TABLE tb_OrdonnanceDetail
 (No
 int
@@ -355,7 +355,7 @@ constraint fk_Register_RegistrarNo
 foreign key(RegistrarNo)
 references tb_Agency(No)
 ,RegisterPrice
-decimal(18, 2)
+decimal(2,2)
 not null
 ,Remark
 varchar(50))

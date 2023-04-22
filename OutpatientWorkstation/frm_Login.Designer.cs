@@ -123,6 +123,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frm_Login";
             this.Text = "登录";
+            this.Load += new System.EventHandler(this.frm_Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

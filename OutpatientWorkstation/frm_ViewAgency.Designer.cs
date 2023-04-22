@@ -38,7 +38,7 @@
             // 
             this.tv_agency.Location = new System.Drawing.Point(14, 44);
             this.tv_agency.Name = "tv_agency";
-            this.tv_agency.Size = new System.Drawing.Size(195, 312);
+            this.tv_agency.Size = new System.Drawing.Size(195, 326);
             this.tv_agency.TabIndex = 68;
             this.tv_agency.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_agency_AfterSelect);
             // 

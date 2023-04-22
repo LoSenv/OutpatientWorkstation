@@ -26,7 +26,8 @@ namespace OutpatientWorkstation
 
         private void frm_Dhome_Load(object sender, EventArgs e)
         {
-
+            this.lblMsg.Text = _name;
+            this.lbl_home.Text = "欢迎"+_name+"进入医生主页！";
         }
 
         private void tsm_pview_Click(object sender, EventArgs e)
@@ -53,7 +54,7 @@ namespace OutpatientWorkstation
 
         private void tsm_oinsert_Click(object sender, EventArgs e)
         {
-            frm_InsertOrdonnance frm_InsertOrdonnance = new frm_InsertOrdonnance();
+            frm_InsertOrdonnance frm_InsertOrdonnance = new frm_InsertOrdonnance(this._name);
             frm_InsertOrdonnance.TopLevel = false;
             frm_InsertOrdonnance.FormBorderStyle = FormBorderStyle.None;
             frm_InsertOrdonnance.Dock = DockStyle.Fill;
@@ -72,6 +73,18 @@ namespace OutpatientWorkstation
         {
             frm_Mpwd frm_Mpwd = new frm_Mpwd(this._name);
             frm_Mpwd.ShowDialog();
+        }
+
+        private void tsm_oview_Click(object sender, EventArgs e)
+        {
+            frm_ViewOrdonnance frm_ViewOrdonnance =new frm_ViewOrdonnance();
+            frm_ViewOrdonnance.ShowDialog();
+        }
+
+        private void tsm_mRview_Click(object sender, EventArgs e)
+        {
+            frm_ViewMedicalRecord frm_ViewMedicalRecord =new frm_ViewMedicalRecord();
+            frm_ViewMedicalRecord.ShowDialog();
         }
     }
 }

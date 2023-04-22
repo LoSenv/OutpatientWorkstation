@@ -45,7 +45,7 @@ namespace OutpatientWorkstation
                 this.txb_pwd.SelectAll();
                 return;
             }
-            frm_Ahome frm_Ahome = new frm_Ahome();
+            frm_Ahome frm_Ahome = new frm_Ahome(adminName);
             frm_Ahome.ShowDialog();
         }
         /// <summary>

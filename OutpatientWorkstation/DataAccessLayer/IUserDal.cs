@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,13 @@ namespace OutpatientWorkstation.DataAccessLayer
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        int UpdatePassword(User user);
+        int UpdatePassword(string userName,string password);
+        User SelectNo(string username);
+        DataSet SelectByTree();
+        DataTable SelectAgencyTable(int technicalOfficeNo);
+        DataTable SelectAgencyTypeTable();
+        DataTable SelectTechnicalOfficeNoTable();
+        int InsertAgency(int agencyTypeNo, string name, bool gender, string phone, int technicalOfficeNo, string remark);
+
     }
 }

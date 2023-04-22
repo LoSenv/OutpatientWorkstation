@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,11 +50,35 @@
   <ItemGroup>
     <Compile Include="BusinessLogicLayer\AdminBll.cs" />
     <Compile Include="BusinessLogicLayer\IAdminBll.cs" />
+    <Compile Include="BusinessLogicLayer\IMedicalRecordBll.cs" />
+    <Compile Include="BusinessLogicLayer\IMedicineBll.cs" />
+    <Compile Include="BusinessLogicLayer\IOrdonnanceBll.cs" />
+    <Compile Include="BusinessLogicLayer\IOrdonnanceDetailBll.cs" />
+    <Compile Include="BusinessLogicLayer\IPatientBll.cs" />
+    <Compile Include="BusinessLogicLayer\IRegisterBll.cs" />
     <Compile Include="BusinessLogicLayer\IUserBll.cs" />
+    <Compile Include="BusinessLogicLayer\MedicalRecordBll.cs" />
+    <Compile Include="BusinessLogicLayer\MedicineBll.cs" />
+    <Compile Include="BusinessLogicLayer\OrdonnanceBll.cs" />
+    <Compile Include="BusinessLogicLayer\OrdonnanceDetailBll.cs" />
+    <Compile Include="BusinessLogicLayer\PatientBll.cs" />
+    <Compile Include="BusinessLogicLayer\RegisterBll.cs" />
     <Compile Include="BusinessLogicLayer\UserBll.cs" />
     <Compile Include="DataAccessLayer\AdminDal.cs" />
     <Compile Include="DataAccessLayer\IAdminDal.cs" />
+    <Compile Include="DataAccessLayer\IMedicalRecordDal.cs" />
+    <Compile Include="DataAccessLayer\IMedicineDal.cs" />
+    <Compile Include="DataAccessLayer\IOrdonnanceDal.cs" />
+    <Compile Include="DataAccessLayer\IOrdonnanceDetailDal.cs" />
+    <Compile Include="DataAccessLayer\IPatientDal.cs" />
+    <Compile Include="DataAccessLayer\IRegisterDal.cs" />
     <Compile Include="DataAccessLayer\IUserDal.cs" />
+    <Compile Include="DataAccessLayer\MedicalRecordDal.cs" />
+    <Compile Include="DataAccessLayer\MedicineDal.cs" />
+    <Compile Include="DataAccessLayer\OrdonnanceDal.cs" />
+    <Compile Include="DataAccessLayer\OrdonnanceDetailDal.cs" />
+    <Compile Include="DataAccessLayer\PatientDal.cs" />
+    <Compile Include="DataAccessLayer\RegisterDal.cs" />
     <Compile Include="DataAccessLayer\UserDal.cs" />
     <Compile Include="frm_AMpwd.cs">
       <SubType>Form</SubType>
@@ -66,6 +91,12 @@
     </Compile>
     <Compile Include="frm_InsertAgency.Designer.cs">
       <DependentUpon>frm_InsertAgency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_InsertMedicalRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_InsertMedicalRecord.Designer.cs">
+      <DependentUpon>frm_InsertMedicalRecord.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_InsertOrdonnance.cs">
       <SubType>Form</SubType>
@@ -109,11 +140,23 @@
     <Compile Include="frm_ViewAgency.Designer.cs">
       <DependentUpon>frm_ViewAgency.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_ViewMedicalRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ViewMedicalRecord.Designer.cs">
+      <DependentUpon>frm_ViewMedicalRecord.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_ViewMedicine.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_ViewMedicine.Designer.cs">
       <DependentUpon>frm_ViewMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ViewOrdonnance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ViewOrdonnance.Designer.cs">
+      <DependentUpon>frm_ViewOrdonnance.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_ViewPatient.cs">
       <SubType>Form</SubType>
@@ -134,6 +177,12 @@
     <Compile Include="frm_Register.Designer.cs">
       <DependentUpon>frm_Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\MedicalRecord.cs" />
+    <Compile Include="Model\Medicine.cs" />
+    <Compile Include="Model\Ordonnance.cs" />
+    <Compile Include="Model\OrdonnanceDetail.cs" />
+    <Compile Include="Model\Patient.cs" />
+    <Compile Include="Model\Register.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="frm_Ahome.cs">
       <SubType>Form</SubType>
@@ -176,6 +225,9 @@
     <EmbeddedResource Include="frm_InsertAgency.resx">
       <DependentUpon>frm_InsertAgency.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_InsertMedicalRecord.resx">
+      <DependentUpon>frm_InsertMedicalRecord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_InsertOrdonnance.resx">
       <DependentUpon>frm_InsertOrdonnance.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,8 +258,14 @@
     <EmbeddedResource Include="frm_ViewAgency.resx">
       <DependentUpon>frm_ViewAgency.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_ViewMedicalRecord.resx">
+      <DependentUpon>frm_ViewMedicalRecord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_ViewMedicine.resx">
       <DependentUpon>frm_ViewMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ViewOrdonnance.resx">
+      <DependentUpon>frm_ViewOrdonnance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ViewPatient.resx">
       <DependentUpon>frm_ViewPatient.cs</DependentUpon>

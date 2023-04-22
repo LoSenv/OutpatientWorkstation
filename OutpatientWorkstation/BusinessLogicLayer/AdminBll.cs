@@ -17,7 +17,7 @@ namespace OutpatientWorkstation.BusinessLogicLayer
         /// <summary>
         /// 用户数据访问层
         /// </summary>
-        private AdminDal AdminDal { get; set; }
+        private IAdminDal AdminDal { get; set; }
         public AdminBll()
         {
             this.AdminDal=new AdminDal();

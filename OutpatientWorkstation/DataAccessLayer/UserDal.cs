@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace OutpatientWorkstation.DataAccessLayer
 {
@@ -104,7 +105,7 @@ namespace OutpatientWorkstation.DataAccessLayer
             }
             return rowAffected;
         }
-        public int UpdatePassword(User user)
+        public int UpdatePassword(string userName,string password)
         {
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString =
@@ -113,15 +114,129 @@ namespace OutpatientWorkstation.DataAccessLayer
             sqlCommand.Connection = sqlConnection;
             sqlCommand.CommandText =
                 $@"UPDATE tb_Agency
-                SET Password=@newPassword
+                SET Password=HASHBYTES('MD5',@Password)
                 WHERE Name=@Name";
-            sqlCommand.Parameters.AddWithValue("@Name", user.Name);
-            sqlCommand.Parameters.AddWithValue("@Password", user.Password);
+            sqlCommand.Parameters.AddWithValue("@Name", userName);
+            sqlCommand.Parameters.AddWithValue("@Password", password);
+            sqlCommand.Parameters["@Password"].SqlDbType = SqlDbType.VarChar;
             int rowAffected = 0;
             sqlConnection.Open();
             rowAffected = sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
             return rowAffected;
+        }
+        public User SelectNo(string userName)
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString =
+                ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandText = "SELECT No FROM tb_Agency WHERE Name=@Name";
+            sqlCommand.Parameters.AddWithValue("@Name", userName);
+            sqlConnection.Open();
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            User user = new User();
+            if (reader.Read())
+            {
+                user = new User()
+                {
+                    No = (int)reader["No"]
+                };
+            }
+            reader.Close();
+            return user;
+        }
+        public DataSet SelectByTree() 
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString =
+                ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandText =
+                "SELECT * FROM tb_Department;" +
+                "SELECT * FROM tb_TechnicalOffice;";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = sqlCommand;
+            DataSet dataSet = new DataSet();
+            sqlConnection.Open();
+            sqlDataAdapter.Fill(dataSet);
+            sqlConnection.Close();
+            return dataSet;
+        }
+        public DataTable SelectAgencyTable(int technicalOfficeNo)
+        {
+            
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString =
+                ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandText =
+               $@"SELECT No,Name,Gender,Phone,AgencyTypeNo,Remark 
+                FROM tb_Agency WHERE TechnicalOfficeNo=@TechnicalOfficeNo";
+            sqlCommand.Parameters.AddWithValue("@TechnicalOfficeNo", technicalOfficeNo);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = sqlCommand;
+            DataTable AgencyTable = new DataTable();
+            sqlConnection.Open();
+            sqlDataAdapter.Fill(AgencyTable);
+            sqlConnection.Close();
+            return AgencyTable;
+        }
+        public DataTable SelectAgencyTypeTable()
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString =
+                ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandText = "SELECT * FROM tb_AgencyType";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = sqlCommand;
+            DataTable agencyTypeTable = new DataTable();
+            sqlConnection.Open();
+            sqlDataAdapter.Fill(agencyTypeTable);
+            sqlConnection.Close();
+            return agencyTypeTable;
+        }
+     public DataTable SelectTechnicalOfficeNoTable()
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString =
+                ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandText = "SELECT No,Name FROM tb_TechnicalOffice";
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = sqlCommand;
+            DataTable technicalOfficeTable = new DataTable();
+            sqlConnection.Open();
+            sqlDataAdapter.Fill(technicalOfficeTable);
+            sqlConnection.Close();
+            return technicalOfficeTable;
+        }
+        public int InsertAgency(int agencyTypeNo,string name,bool gender,string phone,int technicalOfficeNo,string remark)
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString =
+                ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandText =
+                $@"INSERT INTO tb_Agency(AgencyTypeNo,Name,Gender,Phone,TechnicalOfficeNo,Remark)
+                VALUES(@AgencyTypeNo,@Name,@Gender,@Phone,@TechnicalOfficeNo,@Remark)";
+            sqlCommand.Parameters.AddWithValue("@AgencyTypeNo", agencyTypeNo);
+            sqlCommand.Parameters.AddWithValue("@Name", name);
+            sqlCommand.Parameters.AddWithValue("@Gender", gender);
+            sqlCommand.Parameters.AddWithValue("@Phone", phone);
+            sqlCommand.Parameters.AddWithValue("@TechnicalOfficeNo", technicalOfficeNo);
+            sqlCommand.Parameters.AddWithValue("@Remark", remark);
+            sqlConnection.Open();
+            int rowCount = (int)sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
+            return rowCount;
         }
     }
 }

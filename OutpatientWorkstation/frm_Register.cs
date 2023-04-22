@@ -58,12 +58,6 @@ namespace OutpatientWorkstation
                 this.ErrorProvider.SetError(this.txb_name, "用户号不能为空");
                 return;
             }
-            bool isExisting = this.UserBll.CheckExist(userName);
-            if (isExisting)
-            {
-                this.ErrorProvider.SetError(this.txb_name, "用户号已存在");
-                return;
-            }
             this.ErrorProvider.SetError(this.txb_name, "");
         }
         /// <summary>

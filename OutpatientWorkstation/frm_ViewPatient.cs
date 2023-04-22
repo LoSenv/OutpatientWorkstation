@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OutpatientWorkstation.BusinessLogicLayer;
+using OutpatientWorkstation.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -14,9 +16,12 @@ namespace OutpatientWorkstation
 {
     public partial class frm_ViewPatient : Form
     {
+        private Patient Patient { get; set; }
+        private IPatientBll PatientBll { get; set; }
         public frm_ViewPatient()
         {
             InitializeComponent();
+            this.PatientBll = new PatientBll();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -27,29 +32,22 @@ namespace OutpatientWorkstation
 
         private void btn_load_Click(object sender, EventArgs e)
         {
-            //Admin admin = new Admin();
-            //admin.ViewPatient();
-            //admin.PatientViewByName = new DataView();
-            //admin.PatientViewByName.Table = admin.PatientTable;
-            //admin.PatientViewByName.Sort = "姓名 ASC";
-            //this.dgv_cInfo.Columns.Clear();
-            //this.dgv_cInfo.DataSource = admin.PatientTable;
+            this.PatientBll.ViewPatient();
+            this.dgv_cInfo.Columns.Clear();
+            this.dgv_cInfo.DataSource = this.PatientBll.PatientTable;
         }
 
         private void btn_SearchByNo_Click(object sender, EventArgs e)
         {
-            //Admin admin = new Admin();
-            //admin.ViewPatient();
-            //admin.SelectPatientByNo(this.txb_no.Text.Trim(),admin.PatientTable);
-            //this.dgv_cInfo.DataSource = admin.ResultTable;
+            string no=this.txb_no.Text.Trim();
+            this.PatientBll.ViewPatient();
+            this.PatientBll.SelectByNo(no);
+            this.dgv_cInfo.DataSource = this.PatientBll.ResultTable;
         }
 
         private void btn_SearchByName_Click(object sender, EventArgs e)
         {
-            //Admin admin= new Admin();
-            //admin.ViewPatient();
-            //admin.SelectPatientByName(this.txb_name.Text.Trim(),admin.PatientViewByName);
-            //this.dgv_cInfo.DataSource = admin.ResultTable;
+
         }
     }
 }

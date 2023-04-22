@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,9 @@ namespace OutpatientWorkstation.BusinessLogicLayer
 {
     public  interface IUserBll
     {
+        /// <summary>
+        /// 用户编号
+        /// </summary>
         int AgencyTypeNo { get; }
         /// <summary>
 		/// 是否完成登录；
@@ -21,6 +25,12 @@ namespace OutpatientWorkstation.BusinessLogicLayer
         /// 消息；
         /// </summary>
         string Message { get; }
+        DataSet DataSet { get; }
+        DataTable DepartmentTable { get; }
+        DataTable TechnicalOfficeTable { get; }
+        DataTable AgencyTable { get;  }
+        DataTable AgencyTypeTable { get;  }
+
         /// <summary>
         /// 检查是否存在；
         /// </summary>
@@ -33,20 +43,6 @@ namespace OutpatientWorkstation.BusinessLogicLayer
         /// <param name="userName">用户名</param>
         /// <returns>是否不存在</returns>
         bool CheckNotExist(string userName);
-        /// <summary>
-        /// 确认密码一致
-        /// </summary>
-        /// <param name="newPassword"></param>
-        /// <param name="checkPasword"></param>
-        /// <returns></returns>
-        bool CheckEqual(string newPassword, string checkPasword);
-        /// <summary>
-        /// 确认密码不一致
-        /// </summary>
-        /// <param name="newPassword"></param>
-        /// <param name="checkPasword"></param>
-        /// <returns></returns>
-        bool CheckNotEqual(string newPassword, string checkPasword);
         /// <summary>
         /// 登录；
         /// </summary>
@@ -69,5 +65,10 @@ namespace OutpatientWorkstation.BusinessLogicLayer
         /// <param name="checkPassword"></param>
         /// <returns></returns>
         User ModifyPassword(string userName,string oldPassword,string newPassword,string checkPassword);
+        int SelectUserNo(string userName);
+        void ViewAgency();
+        void AfterSelect(int technicalOfficeNo);
+        void InsertAgencyInfo();
+        void InsertAgency(int agencyTypeNo, string name, bool gender, string phone, int technicalOfficeNo, string remark);
     }
 }

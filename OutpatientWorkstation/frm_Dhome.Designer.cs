@@ -146,14 +146,15 @@
             // tsm_mRinsert
             // 
             this.tsm_mRinsert.Name = "tsm_mRinsert";
-            this.tsm_mRinsert.Size = new System.Drawing.Size(152, 26);
+            this.tsm_mRinsert.Size = new System.Drawing.Size(224, 26);
             this.tsm_mRinsert.Text = "填写病历";
             // 
             // tsm_mRview
             // 
             this.tsm_mRview.Name = "tsm_mRview";
-            this.tsm_mRview.Size = new System.Drawing.Size(152, 26);
+            this.tsm_mRview.Size = new System.Drawing.Size(224, 26);
             this.tsm_mRview.Text = "浏览病历";
+            this.tsm_mRview.Click += new System.EventHandler(this.tsm_mRview_Click);
             // 
             // menuStrip4
             // 
@@ -221,6 +222,7 @@
             this.tsm_oview.Name = "tsm_oview";
             this.tsm_oview.Size = new System.Drawing.Size(152, 26);
             this.tsm_oview.Text = "浏览处方";
+            this.tsm_oview.Click += new System.EventHandler(this.tsm_oview_Click);
             // 
             // frm_Dhome
             // 

@@ -66,6 +66,7 @@
             this.btn_refresh.TabIndex = 55;
             this.btn_refresh.Text = "刷新";
             this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // cbo_price
             // 
@@ -115,6 +116,7 @@
             this.btn_load.TabIndex = 50;
             this.btn_load.Text = "载入";
             this.btn_load.UseVisualStyleBackColor = true;
+            this.btn_load.Click += new System.EventHandler(this.btn_load_Click);
             // 
             // btn_reg
             // 
@@ -125,6 +127,7 @@
             this.btn_reg.TabIndex = 49;
             this.btn_reg.Text = "挂号";
             this.btn_reg.UseVisualStyleBackColor = true;
+            this.btn_reg.Click += new System.EventHandler(this.btn_reg_Click);
             // 
             // dgv_reg
             // 

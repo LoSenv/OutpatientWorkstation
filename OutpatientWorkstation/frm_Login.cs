@@ -100,5 +100,10 @@ namespace OutpatientWorkstation
             frm_Register frm_Register= new frm_Register();
             frm_Register.ShowDialog();
         }
+
+        private void frm_Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
