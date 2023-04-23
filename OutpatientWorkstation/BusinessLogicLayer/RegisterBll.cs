@@ -31,9 +31,9 @@ namespace OutpatientWorkstation.BusinessLogicLayer
         {
             return this.RegisterDal.SelectPatient(name);
         }
-        public void Register(string patientNo, string technicalOfficeNo, string doctorNo, string registrarNo, string registerPrice, string remark)
+        public void Register(string patientNo, string technicalOfficeNo, string doctorNo, string registrarNo, string registerPrice, string remark, DateTime dateTime)
         {
-            int count = this.RegisterDal.Insert(patientNo,technicalOfficeNo,doctorNo,registrarNo,registerPrice,remark);
+            int count = this.RegisterDal.Insert(patientNo,technicalOfficeNo,doctorNo,registrarNo,registerPrice,remark,dateTime);
             if (count == 1)
             {
                this.Message="挂号成功！";

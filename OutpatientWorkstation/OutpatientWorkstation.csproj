@@ -177,7 +177,7 @@
     <Compile Include="frm_Register.Designer.cs">
       <DependentUpon>frm_Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\MedicalRecord.cs" />
+    <Compile Include="Model\MedicialRecord.cs" />
     <Compile Include="Model\Medicine.cs" />
     <Compile Include="Model\Ordonnance.cs" />
     <Compile Include="Model\OrdonnanceDetail.cs" />

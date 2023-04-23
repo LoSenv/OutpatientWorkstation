@@ -252,7 +252,7 @@ not null)
 
 --建处方单明细表
 
-DROP TABLE IF EXISTS   tb_OrdonnanceDetail
+DROP TABLE  IF EXISTS  tb_OrdonnanceDetail
 CREATE TABLE tb_OrdonnanceDetail
 (No
 int
@@ -294,7 +294,7 @@ varchar(128))
 
 --建病历表
 
-DROP TABLE  IF EXISTS   tb_MedicalRecord
+DROP TABLE IF EXISTS    tb_MedicalRecord
 CREATE TABLE tb_MedicalRecord
 (No
 int
@@ -322,8 +322,8 @@ references tb_Register(No))
 
 
 --建挂号表
-
-DROP TABLE  IF EXISTS tb_Register
+USE OWDB
+DROP TABLE  IF EXISTS    tb_Register
 CREATE TABLE tb_Register
 (No
 int
@@ -355,10 +355,13 @@ constraint fk_Register_RegistrarNo
 foreign key(RegistrarNo)
 references tb_Agency(No)
 ,RegisterPrice
-decimal(2,2)
+int
 not null
 ,Remark
-varchar(50))
+varchar(50)
+,DateTime
+datetime
+not null)
 
 
 --管理员表插入数据

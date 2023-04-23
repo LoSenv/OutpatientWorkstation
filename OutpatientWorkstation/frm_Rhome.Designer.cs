@@ -55,6 +55,7 @@
             this.txb_adress = new System.Windows.Forms.TextBox();
             this.txb_name = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_return = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_reg)).BeginInit();
             this.SuspendLayout();
             // 
@@ -302,11 +303,23 @@
             this.label1.TabIndex = 29;
             this.label1.Text = "病人信息";
             // 
+            // btn_return
+            // 
+            this.btn_return.AutoSize = true;
+            this.btn_return.Location = new System.Drawing.Point(696, 4);
+            this.btn_return.Name = "btn_return";
+            this.btn_return.Size = new System.Drawing.Size(77, 25);
+            this.btn_return.TabIndex = 56;
+            this.btn_return.Text = "返回首页";
+            this.btn_return.UseVisualStyleBackColor = true;
+            this.btn_return.Click += new System.EventHandler(this.btn_return_Click);
+            // 
             // frm_Rhome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_return);
             this.Controls.Add(this.btn_refresh);
             this.Controls.Add(this.cbo_price);
             this.Controls.Add(this.label12);
@@ -372,5 +385,6 @@
         private System.Windows.Forms.TextBox txb_adress;
         private System.Windows.Forms.TextBox txb_name;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_return;
     }
 }

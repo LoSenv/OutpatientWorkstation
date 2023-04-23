@@ -16,6 +16,6 @@ namespace OutpatientWorkstation.BusinessLogicLayer
         DataTable RegisterTable { get; }
         void LoadInfo();
         Patient LoadPatient(string name);
-        void Register(string patientNo, string technicalOfficeNo, string doctorNo, string registrarNo, string registerPrice, string remark);
+        void Register(string patientNo, string technicalOfficeNo, string doctorNo, string registrarNo, string registerPrice, string remark, DateTime dateTime);
     }
 }

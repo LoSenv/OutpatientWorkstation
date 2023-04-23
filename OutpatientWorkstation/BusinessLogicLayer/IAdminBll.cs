@@ -35,5 +35,6 @@ namespace OutpatientWorkstation.BusinessLogicLayer
         /// <param name="password"></param>
         /// <returns></returns>
         Admin LogIn(string adminName, string password);
+        void ModifyPassword(string name, string oldPassword, string newPassword, string checkPassword);
     }
 }

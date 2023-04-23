@@ -148,6 +148,7 @@
             this.tsm_mRinsert.Name = "tsm_mRinsert";
             this.tsm_mRinsert.Size = new System.Drawing.Size(224, 26);
             this.tsm_mRinsert.Text = "填写病历";
+            this.tsm_mRinsert.Click += new System.EventHandler(this.tsm_mRinsert_Click);
             // 
             // tsm_mRview
             // 

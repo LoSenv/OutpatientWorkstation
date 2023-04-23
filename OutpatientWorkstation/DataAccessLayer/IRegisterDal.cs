@@ -14,6 +14,6 @@ namespace OutpatientWorkstation.DataAccessLayer
         DataTable SelectDoctorTable();
         DataTable SelectRegisterTable();
         Patient SelectPatient(string name);
-        int Insert(string patientNo, string technicalOfficeNo, string doctorNo, string registrarNo, string registerPrice, string remark);
+        int Insert(string patientNo, string technicalOfficeNo, string doctorNo, string registrarNo, string registerPrice, string remark, DateTime dateTime);
     }
 }

@@ -15,7 +15,7 @@ namespace OutpatientWorkstation
 {
     public partial class frm_ViewMedicalRecord : Form
     {
-        private MedicalRecord MedicalRecord { get; set; }
+        private MedicialRecord MedicalRecord { get; set; }
         private IMedicalRecordBll MedicalRecordBll { get; set; }
         public frm_ViewMedicalRecord()
         {

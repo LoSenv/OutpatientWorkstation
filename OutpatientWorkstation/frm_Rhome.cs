@@ -52,6 +52,7 @@ namespace OutpatientWorkstation
             this.dgv_reg.Columns["AName"].HeaderText = "医生姓名";
             this.dgv_reg.Columns["TName"].HeaderText = "科室名称";
             this.dgv_reg.Columns["RRemark"].HeaderText = "备注";
+            this.dgv_reg.Columns["RDateTime"].HeaderText = "挂号时间";
         }
 
         private void btn_load_Click(object sender, EventArgs e)
@@ -75,7 +76,8 @@ namespace OutpatientWorkstation
             string registrarNo = this.UserBll.SelectUserNo(this._name).ToString();
             string registerPrice = this.cbo_price.SelectedItem.ToString();
             string remark = this.txb_remark.Text.Trim();
-            this.RegisterBll.Register(patientNo, technicalOfficeNo, doctorNo, registrarNo, registerPrice, remark);
+            DateTime dateTime= DateTime.Now;
+            this.RegisterBll.Register(patientNo, technicalOfficeNo, doctorNo, registrarNo, registerPrice, remark,dateTime);
             MessageBox.Show(this.RegisterBll.Message);
         }
 
@@ -89,6 +91,12 @@ namespace OutpatientWorkstation
             this.dgv_reg.Columns["TName"].HeaderText = "科室名称";
             this.dgv_reg.Columns["RRemark"].HeaderText = "备注";
             this.dgv_reg.Columns["RDateTime"].HeaderText = "挂号时间";
+        }
+
+        private void btn_return_Click(object sender, EventArgs e)
+        {
+            frm_Login frm_Login=new frm_Login();
+            frm_Login.ShowDialog();
         }
     }
 }

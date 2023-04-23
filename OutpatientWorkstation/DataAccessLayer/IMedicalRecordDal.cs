@@ -9,7 +9,7 @@ namespace OutpatientWorkstation.DataAccessLayer
 {
     public interface IMedicalRecordDal
     {
-        void Insert();
-        DataTable Select();
+        int Insert(string name, string doctorName, string situation, string registerNo);
+        DataTable SelectMedicalRecord();
     }
 }

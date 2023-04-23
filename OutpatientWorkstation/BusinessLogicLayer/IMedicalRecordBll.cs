@@ -10,7 +10,7 @@ namespace OutpatientWorkstation.BusinessLogicLayer
     public interface IMedicalRecordBll
     {
         DataTable MedicalRecordTable { get;  }
-        void InsertMedicalRecord();
+        void InsertMedicalRecord(string name, string doctorName, string situation, string registerNo);
         void ViewMedicalRecord();
     }
 }

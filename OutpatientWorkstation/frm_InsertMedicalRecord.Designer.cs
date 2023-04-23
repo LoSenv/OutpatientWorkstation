@@ -241,6 +241,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frm_InsertMedicalRecord";
             this.Text = "添加病历";
+            this.Load += new System.EventHandler(this.frm_InsertMedicalRecord_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

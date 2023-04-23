@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OutpatientWorkstation.BusinessLogicLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace OutpatientWorkstation
     public partial class frm_AMpwd : Form
     {
         private string _name;
+        private Admin Admin { get; set; }
+        private IAdminBll AdminBll { get; set; }
         public frm_AMpwd(string name):this()
         {
             this._name= name;
@@ -20,6 +23,7 @@ namespace OutpatientWorkstation
         public frm_AMpwd()
         {
             InitializeComponent();
+            this.AdminBll = new AdminBll();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -30,18 +34,11 @@ namespace OutpatientWorkstation
 
         private void btn_modify_Click(object sender, EventArgs e)
         {
-            //Admin admin= new Admin();
-            //admin.Name = _name;
-            //admin.OldPassword=this.txb_old.Text.Trim();
-            //admin.NewPassword=this.txb_new.Text.Trim();
-            //admin.CheckPassword=this.txb_check.Text.Trim();
-            //if(!admin.ModifyPassword())
-            //{
-            //    this.txb_old.Focus();
-            //    this.txb_old.SelectAll();
-            //    return;
-            //}
-            //MessageBox.Show(admin.Message);
+            string oldPassword=this.txb_old.Text.Trim();
+            string newPassword=this.txb_new.Text.Trim();
+            string checkPassword=this.txb_check.Text.Trim();
+            this.AdminBll.ModifyPassword(this._name,oldPassword, newPassword, checkPassword);
+            MessageBox.Show(this.AdminBll.Message);
         }
 
         private void btn_reset_Click(object sender, EventArgs e)

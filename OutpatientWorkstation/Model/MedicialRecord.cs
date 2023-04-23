@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OutpatientWorkstation.Model
 {
-    public class MedicalRecord
+    public class MedicialRecord
     {
         /// <summary>
         /// 病历编号

@@ -17,6 +17,14 @@ namespace OutpatientWorkstation.BusinessLogicLayer
         }
         public bool HasInsert { get; set; }
         public string Message { get; set; }
+        private void HandleOrdonnanceExist(int no)
+        {
+            if (no.ToString()!= null)
+            {
+                string errorMessage = "该处方已存在！";
+                throw new ApplicationException(errorMessage);
+            }
+        }
         public Ordonnance InsertOrdonnance(int no,int patientNo,int agencyNo,DateTime date)
         {
             this.HasInsert= false;
@@ -29,6 +37,7 @@ namespace OutpatientWorkstation.BusinessLogicLayer
             };
             try
             {
+                this.HandleOrdonnanceExist(no);
                 this.OrdonnanceDal.Insert(ordonnance);
                 this.HasInsert= true;
                 this.Message = "新增处方成功！";

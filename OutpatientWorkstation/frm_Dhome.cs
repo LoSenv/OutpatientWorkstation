@@ -86,5 +86,11 @@ namespace OutpatientWorkstation
             frm_ViewMedicalRecord frm_ViewMedicalRecord =new frm_ViewMedicalRecord();
             frm_ViewMedicalRecord.ShowDialog();
         }
+
+        private void tsm_mRinsert_Click(object sender, EventArgs e)
+        {
+            frm_InsertMedicalRecord frm_InsertMedicalRecord =new frm_InsertMedicalRecord();
+            frm_InsertMedicalRecord.ShowDialog();
+        }
     }
 }

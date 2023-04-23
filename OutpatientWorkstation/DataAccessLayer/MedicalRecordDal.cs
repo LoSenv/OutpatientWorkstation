@@ -6,16 +6,39 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Linq;
+using OutpatientWorkstation.Model;
 
 namespace OutpatientWorkstation.DataAccessLayer
 {
     public class MedicalRecordDal:IMedicalRecordDal
     {
-        public void Insert()
+        public void LoadInfo()
         {
 
         }
-        public DataTable Select()
+        public int Insert(string name, string doctorName,string situation,string registerNo)
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString =
+                ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandText = @"INSERT INTO tb_MedicalRecord
+            (Name,DoctorNo,Situation,RegisterNo)
+            VALUES
+            (@Name,@DoctorNo,@Situation,@RegisterNo)";
+            sqlCommand.Parameters.AddWithValue("@Name", name);
+            sqlCommand.Parameters.AddWithValue("@DoctorNo", doctorName);
+            sqlCommand.Parameters.AddWithValue("@Situation", situation);
+            sqlCommand.Parameters.AddWithValue("@RegisterNo", registerNo);
+            sqlConnection.Open();
+            int rowAffected = sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
+            return rowAffected;
+        }
+        public DataTable SelectMedicalRecord()
         {
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString =

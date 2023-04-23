@@ -10,6 +10,7 @@ namespace OutpatientWorkstation.DataAccessLayer
     {
         Admin Select(string adminName);
         int SelectCount(string adminName);
+        int UpdatePassword(string name, string password);
 
     }
 }

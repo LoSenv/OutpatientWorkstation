@@ -53,7 +53,7 @@ namespace OutpatientWorkstation.DataAccessLayer
                 ConfigurationManager.ConnectionStrings["sql"].ConnectionString;
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = sqlConnection;
-            sqlCommand.CommandText = $@"SELECT R.No AS RNo,P.Name AS PName,A.Name AS AName,T.Name AS TName,R.Remark AS RRemark  
+            sqlCommand.CommandText = $@"SELECT R.No AS RNo,P.Name AS PName,A.Name AS AName,T.Name AS TName,R.Remark AS RRemark,R.DateTime AS RDateTime  
                 FROM tb_Register AS R
                 JOIN tb_Patient AS P ON P.No=R.PatientNo
                 JOIN tb_Agency AS A ON A.No=R.DoctorNo
@@ -93,7 +93,7 @@ namespace OutpatientWorkstation.DataAccessLayer
             reader.Close();
             return patient;
         }
-        public int Insert(string patientNo, string technicalOfficeNo,string doctorNo,string registrarNo,string registerPrice,string remark)
+        public int Insert(string patientNo, string technicalOfficeNo,string doctorNo,string registrarNo,string registerPrice,string remark,DateTime dateTime)
         {
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString =
@@ -101,14 +101,15 @@ namespace OutpatientWorkstation.DataAccessLayer
             SqlCommand insertCommand = new SqlCommand();
             insertCommand.Connection = sqlConnection;
             insertCommand.CommandText = $@"INSERT INTO tb_Register
-				(PatientNo,TechnicalOfficeNo,DoctorNo,RegistrarNo,RegisterPrice,Remark)
-				VALUES(@PatientNo,@TechnicalOfficeNo,@DoctorNo,@RegistrarNo,@RegisterPrice,@Remark)";
+				(PatientNo,TechnicalOfficeNo,DoctorNo,RegistrarNo,RegisterPrice,Remark,DateTime)
+				VALUES(@PatientNo,@TechnicalOfficeNo,@DoctorNo,@RegistrarNo,@RegisterPrice,@Remark,@DateTime)";
             insertCommand.Parameters.AddWithValue("@PatientNo", patientNo);
             insertCommand.Parameters.AddWithValue("@TechnicalOfficeNo", technicalOfficeNo);
             insertCommand.Parameters.AddWithValue("@DoctorNo", doctorNo);
             insertCommand.Parameters.AddWithValue("@RegistrarNo", registrarNo);
             insertCommand.Parameters.AddWithValue("@RegisterPrice", registerPrice);
             insertCommand.Parameters.AddWithValue("@Remark", remark);
+            insertCommand.Parameters.AddWithValue("@DateTime", dateTime);
             sqlConnection.Open();
             int rowCount = (int)insertCommand.ExecuteNonQuery();
             sqlConnection.Close();
